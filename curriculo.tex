@@ -1,0 +1,164 @@
+% GitHub Repo and Documentation: https://github.com/celiobjunior/resume-template
+% Copyright © 2025 Celio B Junior. All rights reserved.
+% 
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+%
+%     http://www.apache.org/licenses/LICENSE-2.0
+%
+% This template follows best practices from README.md
+
+% Início do documento LaTeX: define tipo e formato do documento
+% a4paper = tamanho A4, 10pt = tamanho base da fonte
+\documentclass[a4paper,10pt]{article}
+
+% --- PACOTES: BASE / IDIOMA ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+
+% --- PACOTES: LAYOUT / TIPOGRAFIA ---
+\usepackage{geometry}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{tabularx}
+
+% --- PACOTES: LINKS / BOOKMARKS ---
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{xurl}
+
+% --- CONFIGURAÇÃO: MARGENS / ESPAÇAMENTO ---
+\geometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm} % Margens da página
+\setcounter{secnumdepth}{0}                                 % Remove numeração de seção
+\setlist[itemize]{
+    leftmargin=0.75em, % Recuo da lista (mais perto da margem da página)
+    itemsep=0.2em,     % Espaço entre itens
+    topsep=0.25em,     % Espaço antes/depois da lista
+    parsep=0em,        % Espaço entre parágrafos no mesmo item
+    partopsep=0em      % Espaço extra ao iniciar a lista
+}
+
+% Remove números de página e cabeçalhos para visual limpo do currículo
+\pagestyle{empty}
+
+% --- CONFIGURAÇÃO: METADADOS / LINKS ---
+\hypersetup{
+    pdftitle={CV Seu Nome},   % Título do PDF
+    pdfauthor={Seu Nome},     % Autor do PDF
+    colorlinks=true,          % Usa cor nos links (sem caixa)
+    linkcolor=black,          % Cor de links internos
+    urlcolor=black,           % Cor de URLs
+    citecolor=black,          % Cor de citações
+    bookmarksdepth=2          % Barra lateral: seção e subseção
+}
+
+% --- CONFIGURAÇÃO: TÍTULOS ---
+\titleformat{\section}
+{\Large\bfseries}
+{}
+{0em}
+{}
+[\titlerule\vspace{0.5ex}]
+\titleformat{\subsection}
+{\normalsize\bfseries}
+{}
+{0em}
+{}
+\titlespacing*{\subsection}{0pt}{0.35em}{0.15em}
+
+% Macro para entradas do currículo com bookmark no PDF
+\newcounter{cventry}
+\newcommand{\cventry}[4]{%
+    \refstepcounter{cventry}%
+    \phantomsection%
+    \pdfbookmark[2]{#1}{cventry-\thecventry}%
+    \noindent\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X >{\raggedleft\arraybackslash}X@{}}
+    \textbf{#1} & #2 \\
+    \textit{#3} & \textit{#4} \\
+    \end{tabularx}
+}
+
+% --- INÍCIO DO DOCUMENTO ---
+\begin{document}
+
+% --- CABEÇALHO ---
+% Substitua por suas informações pessoais
+\begin{center}
+    {\LARGE \textbf{Luiz Felipe Carvalho}} 
+    \\ [0.1cm]
+    Campina Grande, Paraíba
+    {\textbullet}
+    \href{mailto:lf.codes2002@gmail.com}{lf.codes2002@gmail.com} 
+    {\textbullet}
+    \href{https://linkedin.com/in/luizlfc-dev}{www.linkedin.com/in/luizlfc-dev} 
+    {\textbullet}
+    \href{https://luizlfc-dev.github.io/}{github.com/Luizlfc-dev}
+\end{center}
+
+% --- SEÇÕES ---
+\section{Resumo Profissional}
+    % Inclua trabalho voluntário, ligas acadêmicas ou cargos de liderança
+    Estudante de Ciência da Computação, Embaixador AWS e Desenvolvedor com foco em Engenharia de Software e Inteligência Artificial. Possuo base sólida na construção de APIs RESTful e no ecossistema .NET (C#) e Java. Atualmente, atuo no NUTES-UEPB desenvolvendo integrações robustas de dados, combinando essa expertise com uma forte atuação prática em inovação, orquestração de infraestrutura (Linux/Docker) e desenvolvimento de plataformas integradas a Modelos de Linguagem (LLMs).
+
+% ------
+
+\section{Atividades de Liderança}
+    % Inclua trabalho voluntário, ligas acadêmicas ou cargos de liderança
+    \cventry{Programa Embaixador AWS 2026}{Remoto}{Participante do Programa (Prestação de Serviços via MEI)}{Abril/2026 - Presente}
+    \begin{itemize}
+        \item Atuação técnica e de liderança na expansão da comunidade de computação em nuvem na Paraíba (Cloud Builders PB).
+        \item Planejamento de trilhas de aprendizado e workshops focados em infraestrutura escalável e soluções AWS.
+        \item Selecionado para representar e disseminar tecnologias cloud no ambiente universitário.
+    \end{itemize}
+        
+% ------
+
+\section{Experiência}
+    % Liste suas experiências profissionais ou acadêmicas, da mais recente para a mais antiga
+    \cventry{NUTES - UEPB Unidade EMBRAPII}{Campina Grande, Paraíba}{Desenvolvedor de Software (Aprendiz)}{Setembro/2025 - Presente}
+        \begin{itemize}
+            % Foque em conquistas, não apenas na parte técnica - use o método STAR (Situação, Tarefa, Ação, Resultado)
+            \item Desenvolvo soluções mobile e desktop focadas em usabilidade utilizando C#.NET MAUI / Avalonia.
+            \item Implemento e consumo APIs RESTful para integração eficiente entre aplicações, estabelecendo a base de dados ideal para integrações com ferramentas de inovação e IA.
+            \item Realizo a integração e estruturação de bancos de dados MySQL e SQL Server em um ambiente de pesquisa de alta performance.
+            \item Utilizo Git e GitHub para controle de versionamento e gerenciamento colaborativo de código.
+        \end{itemize}
+
+    \cventry{Profissional Autônomo}{Campina Grande, Paraíba}{Técnico de TI e Manutenção de Hardware}{Janeiro/2022 - Presente}
+        \begin{itemize}
+            \item Realizo montagem personalizada de computadores, além de diagnóstico avançado de hardware e otimização de sistemas.
+            \item Atendo clientes residenciais e empresariais, oferecendo soluções técnicas eficazes para problemas de hardware e software.
+        \end{itemize}
+
+% ------
+
+\section{Habilidades}
+    % Mantenha esta seção concisa e use o máximo de palavras-chave
+    % que fazem sentido para a vaga que você deseja.
+    \begin{itemize}
+        \item \textbf{Linguagens:} Domínio de C# e Java, com sólida base em Programação Orientada a Objetos.
+        \item \textbf{Inovação & IA:} Integração com APIs de LLMs (Inteligência Artificial Generativa), Automação de fluxos (n8n), Engenharia de Prompts.
+        \item \textbf{Desenvolvimento Backend:} ASP.NET Core, ASP.NET MVC e construção de APIs RESTful.
+        \item \textbf{Banco de Dados:} Experiência prática com MySQL e SQL Server.
+        \item \textbf{Cloud & DevOps:} AWS Cloud, Git, GitHub, Docker e orquestração de contêineres.
+        \item \textbf{Idiomas:} Português (Nativo), Inglês (Iniciante - Leitura e Escrita).
+    \end{itemize}
+
+% ------
+
+% !!!!!!!!!!!!!!!!!!!!!!
+% Mude esta seção para o começo, depois do cabeçalho e antes
+% das suas experiências se você está procurando sua primeira
+% vaga ou algum estágio. Do contrário, deixe como está.
+% !!!!!!!!!!!!!!!!!!!!!!
+
+\section{Educação}
+    % Formação mais recente primeiro
+    \cventry{Universidade Estadual da Paraíba (UEPB)}{Campina Grande, Paraíba}{Bacharelado em Ciência da Computação}{2024 - Presente})}
+    \cventry{Instituto Federal da Paraíba (IFPB)}{Campina Grande, Paraíba}{Técnico em Informática}{2018 - 2022}
+\end{document}
